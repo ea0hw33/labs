@@ -1,0 +1,44 @@
+/*Флэш — собака. Pовеp — собака. Бутси — кошка. Стаp —
+лошадь. Флэш чеpная. Бутси коpичневая. Pевеp pыжая. Стаp
+белая. Домашнее животное — собака или кошка. Живот-
+ное — домашнее животное или лошадь. У Тома есть собака
+не чеpного цвета. У Кейта есть лошадь или что-то чеpного
+цвета.
+Запросы:
+• Pовеp рыжая?
+• Опpеделить клички всех собак.
+• Опpеделить владельцев чего-либо.
+• Опpеделить владельцев животных небелого цвета.*/
+
+/* Факты */
+animal(flash, dog, black).
+animal(roveг, dog, pijaya).
+animal(bootsie, cat, brown).
+animal(star, horse, white).
+
+owner(tom, flash).
+owner(kate, star).
+
+/* Правила */
+is_dog(Animal) :- animal(Animal, dog, _).
+
+is_cat(Animal) :- animal(Animal, cat, _).
+
+is_horse(Animal) :- animal(Animal, horse, _).
+
+is_black(Animal) :- animal(Animal, _, black).
+
+is_non_black_dog(Animal) :- is_dog(Animal), \+ animal(Animal, _, black).
+
+/* Запросы */
+/* Ровер рыжая? */
+% animal(roveг, dog, pijaya).
+
+/* Определить клички всех собак */
+% is_dog(Animal), write(Animal).
+
+/* Определить владельцев чего-либо */
+% owner(Owner, Animal), write(Owner), write(' owns '), write(Animal).
+
+/* Определить владельцев животных небелого цвета */
+% owner(Owner, Animal), animal(Animal, _, Color), Color \= white, write(Owner), write(' owns '), write(Animal).
