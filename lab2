@@ -7,5 +7,5 @@ even_elements([_|Tail], Result) :-
     even_elements(Tail, Result). % Если текущий элемент нечетный, просто пропускаем его и продолжаем обработку
 
 
-% ?- even_elements([1, 2, 3, 4, 5, 6], Result).
+% even_elements([1, 2, 3, 4, 5, 6], Result).
 % Result = [2, 4, 6] .
